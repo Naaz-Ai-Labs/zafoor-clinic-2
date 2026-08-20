@@ -1,0 +1,146 @@
+.reviews-body {
+  margin-top: 24px;
+}
+
+.reviews-more {
+  margin-top: 22px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.review-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+@media (max-width: 640px) {
+  .review-card {
+    aspect-ratio: auto;
+    min-height: 260px;
+  }
+}
+
+/* the initial 3 cards use .stagger-item (scroll-triggered, see index.css);
+   cards revealed by "Load More" use this click-triggered entrance instead,
+   since the section is already in view when that button is clicked */
+.review-card-enter {
+  animation: reviewIn 0.5s cubic-bezier(0.16, 0.8, 0.24, 1) both;
+}
+
+@keyframes reviewIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-card-enter {
+    animation: none;
+  }
+}
+
+.review-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(169, 135, 125, 0.5), transparent);
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 168, 106, 0.4);
+  box-shadow: 0 22px 44px rgba(74, 58, 51, 0.12), 0 0 0 1px rgba(201, 168, 106, 0.18);
+}
+
+.review-card .stars {
+  color: var(--color-primary);
+  letter-spacing: 3px;
+  font-size: 1rem;
+}
+
+.quote-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.review-card .quote {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 1.22rem;
+  line-height: 1.45;
+  color: var(--ink);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.review-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--color-primary), var(--color-accent));
+  color: var(--color-dark-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.review-who .name {
+  font-size: 0.96rem;
+  letter-spacing: 0.4px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.review-who .loc {
+  font-size: 0.76rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}

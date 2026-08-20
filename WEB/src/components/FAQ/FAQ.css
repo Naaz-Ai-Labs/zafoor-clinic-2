@@ -1,0 +1,65 @@
+.faq-body {
+  max-width: 760px;
+  margin-top: 22px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.faq-item:hover {
+  border-color: rgba(201, 168, 106, 0.35);
+  box-shadow: 0 10px 26px rgba(74, 58, 51, 0.1);
+}
+
+.faq-item.open {
+  border-color: rgba(201, 168, 106, 0.45);
+}
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 18px 22px;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.18rem;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.faq-icon {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-a p {
+  padding: 0 22px 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}

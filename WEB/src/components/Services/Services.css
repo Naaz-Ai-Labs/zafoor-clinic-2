@@ -1,0 +1,294 @@
+.dept-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.dept-tab-btn {
+  padding: 11px 24px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur-md)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(160%);
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.dept-tab-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--ink);
+}
+
+/* active tab — same Luxe-Gold fill as .btn-solid in index.css, kept
+   as its own rule since border-radius/padding differ from a button */
+.dept-tab-btn.active {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-dark-base);
+  font-weight: 600;
+  transition: background 250ms ease, border-color 250ms ease;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  gap: 4px;
+  margin: 0 auto 28px;
+  padding: 5px;
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur-md)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.lang-opt {
+  padding: 8px 20px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* active toggle — shared by Services' EN/TA switch and Gallery's
+   Before&After / The Clinic tabs (same .lang-toggle/.lang-opt markup) */
+.lang-opt.active {
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary);
+  color: var(--color-dark-base);
+  font-weight: 600;
+  transition: background 250ms ease, border-color 250ms ease;
+}
+
+/* semantic h3 for the active department — visually a quiet label, since
+   the tab buttons above already carry this as the primary visual cue */
+.dept-heading {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: var(--radius);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.service-card-media {
+  box-sizing: border-box;
+  width: 100%;
+  height: 180px;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.service-card-body {
+  padding: 24px 24px 32px;
+}
+
+.service-img-placeholder {
+  box-sizing: border-box;
+  width: 100%;
+  height: 180px;
+  max-height: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--glass), var(--color-primary-soft) 180%);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.service-img-placeholder span {
+  font-size: 0.78rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(169, 135, 125, 0.5), transparent);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 168, 106, 0.4);
+  box-shadow: 0 22px 44px rgba(74, 58, 51, 0.12), 0 0 0 1px rgba(201, 168, 106, 0.18);
+}
+
+.service-card h4 {
+  font-size: 1.28rem;
+  margin-bottom: 8px;
+  color: var(--ink);
+  letter-spacing: 0.3px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* ===== treatment detail modal ===== */
+.tmodal {
+  position: fixed;
+  inset: 0;
+  background: rgba(54, 42, 37, 0.6);
+  backdrop-filter: blur(var(--blur-sm));
+  z-index: 2100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.tmodal.open {
+  display: flex;
+}
+
+.tmodal-card {
+  max-width: 480px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tmodal-media {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.tmodal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.tmodal-body {
+  padding: 24px 32px 40px;
+}
+
+.tmodal-card .service-img-placeholder {
+  height: 220px;
+}
+
+.tmodal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(54, 42, 37, 0.55);
+  backdrop-filter: blur(var(--blur-sm));
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.2s, background 0.2s;
+}
+
+.tmodal-close:hover {
+  color: var(--color-primary);
+  background: rgba(54, 42, 37, 0.75);
+}
+
+.tmodal-card .eyebrow {
+  color: var(--color-accent);
+}
+
+.tmodal-card h3 {
+  font-size: 1.75rem;
+  margin: 8px 0 14px;
+  color: var(--ink);
+}
+
+.tmodal-brief {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.tmodal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tmodal-actions .btn {
+  color: var(--ink);
+  border-color: rgba(169, 135, 125, 0.4);
+  background: transparent;
+}
+
+.tmodal-actions .btn:hover {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-dark-base);
+}
+
+/* .btn-solid here (Book Consultation) inherits the Luxe-Gold fill from
+   the shared .btn-solid rule in index.css — no override needed */
