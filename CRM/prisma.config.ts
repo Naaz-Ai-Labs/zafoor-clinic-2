@@ -9,6 +9,10 @@ export default defineConfig({
     path: "prisma/migrations",
     seed: "tsx prisma/seed.ts",
   },
+  // Note: this Prisma version's config datasource type only accepts `url`,
+  // not `directUrl`. For migrations/db push against the pooled connection,
+  // temporarily point DATABASE_URL at DIRECT_URL's value (pgbouncer can't
+  // run schema changes) - see .env.example.
   datasource: {
     url: process.env["DATABASE_URL"],
   },

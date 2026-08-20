@@ -11,6 +11,9 @@ generator client {
   output   = "../src/generated/prisma"
 }
 
+// Connection URL lives in prisma.config.ts (Prisma 7+ moved it out of the
+// schema file). DATABASE_URL = Supabase's pooled connection, required on
+// Vercel/serverless; DIRECT_URL = unpooled, used for migrations/db push.
 datasource db {
   provider = "postgresql"
 }
