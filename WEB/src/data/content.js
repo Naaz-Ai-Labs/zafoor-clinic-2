@@ -29,15 +29,15 @@ export const hero = {
     "A doctor-led skin, hair, diabetes and family medicine clinic in George Town, Chennai — delivering honest, results-driven care in a calm, luxurious setting.",
   slides: [
     {
-      src: "/images/hero/clinic-signage-1.jpg",
+      src: "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/clinic-signage-1.jpg",
       alt: "Zafoor Clinic reception wall signage",
     },
     {
-      src: "/images/hero/clinic-signage-2.jpg",
+      src: "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/clinic-signage-2.jpg",
       alt: "Zafoor Clinic gold circular wall signage",
     },
     {
-      src: "/images/hero/doctor-nameplate.jpg",
+      src: "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/doctor-nameplate.jpg",
       alt: "Dr. Mufeeda Roohi consultation room nameplate at Zafoor Clinic",
     },
   ],
@@ -48,9 +48,9 @@ export const hero = {
 };
 
 export const doctorBanner = {
-  background: "/images/hero/storefront.jpg",
-  logo: "/logo/zafoor-clinic-logo.png",
-  photo: "/logo/dr-mufeeda-roohi.jpg",
+  background: "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/storefront.jpg",
+  logo: "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/logo/zafoor-clinic-logo.png",
+  photo: "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/logo/dr-mufeeda-roohi.jpg",
   eyebrow: "Meet Your Doctor",
   name: "Dr. Mufeeda Roohi",
   credentials: "Family Physician, Diabetologist and Aesthetic Physician",
@@ -81,7 +81,7 @@ export const servicesSection = {
           "taDesc": "சருமப் புத்துணர்ச்சி மற்றும் முடி வளர்ச்சிக்கான ப்ளேட்லெட் செறிவு சிகிச்சை.",
           "enTitle": "PRP Therapy",
           "enDesc": "Platelet-Rich Plasma treatment for skin rejuvenation and hair regrowth.",
-          "image": "/images/services/prp-therapy.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/prp-therapy.jpg"
         },
         {
           "brief": "An advanced evolution of PRP using concentrated growth factors, applied via micro-injections to boost hair density and skin quality with fewer sessions.",
@@ -89,7 +89,7 @@ export const servicesSection = {
           "taDesc": "முடி மற்றும் சரும மேம்பாட்டிற்கான மேம்பட்ட வளர்ச்சி காரணி சிகிச்சை.",
           "enTitle": "GFC Therapy",
           "enDesc": "Growth Factor Concentrate treatment for advanced hair and skin restoration.",
-          "image": "/images/services/gfc-therapy.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/gfc-therapy.webp"
         },
         {
           "brief": "A doctor-graded acid solution is applied to exfoliate the outer skin layer, improving tone, texture and pigmentation over a course of sessions.",
@@ -97,7 +97,7 @@ export const servicesSection = {
           "taDesc": "சருமத் தோற்றம் மற்றும் நிறமி சரிசெய்தலுக்கான சிகிச்சை.",
           "enTitle": "Chemical Peels",
           "enDesc": "Resurfacing treatment for tone, texture and pigmentation correction.",
-          "image": "/images/services/chemical-peels.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/chemical-peels.webp"
         },
         {
           "brief": "Fine hyaluronic-acid micro-injections hydrate skin from within, improving elasticity and glow without changing facial contours.",
@@ -105,7 +105,7 @@ export const servicesSection = {
           "taDesc": "மென்மையான, பொலிவான சருமத்திற்கான ஈரப்பத ஊசி சிகிச்சை.",
           "enTitle": "Skin Boosters",
           "enDesc": "Hydration-based injectables for smoother, plumper skin.",
-          "image": "/images/services/skin-boosters.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/skin-boosters.jpg"
         },
         {
           "brief": "Medical-grade laser sessions for scar smoothing, tattoo fading, hair reduction or pigmentation correction — tailored intensity per skin type.",
@@ -113,7 +113,7 @@ export const servicesSection = {
           "taDesc": "சருக்கம், பச்சை குத்து, முடி வளர்ச்சி மற்றும் நிறமி நீக்கம்.",
           "enTitle": "Laser Treatments",
           "enDesc": "Scar removal, tattoo removal, hair reduction and pigmentation removal.",
-          "image": "/images/services/laser-treatments.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/laser-treatments.webp"
         },
         {
           "brief": "Hydra Facial and Fire & Ice Facial protocols deep-cleanse, exfoliate and infuse serums for an immediate, visible glow.",
@@ -121,7 +121,7 @@ export const servicesSection = {
           "taDesc": "ஹைட்ரா ஃபேஷியல் மற்றும் ஃபயர் & ஐஸ் ஃபேஷியல் சிகிச்சைகள்.",
           "enTitle": "Facials",
           "enDesc": "Includes Hydra Facial and Fire & Ice Facial for glow and rejuvenation.",
-          "image": "/images/services/facials.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/facials.jpg"
         },
         {
           "brief": "A combination of exfoliation and pore-tightening actives to visibly reduce the appearance of enlarged pores over a treatment course.",
@@ -129,7 +129,7 @@ export const servicesSection = {
           "taDesc": "விரிந்த மூலைக் குழிகளை குறைப்பதற்கான சிகிச்சை.",
           "enTitle": "Open Pores Treatment",
           "enDesc": "Targeted therapy to minimise enlarged pores.",
-          "image": "/images/services/open-pores-treatment.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/open-pores-treatment.jpg"
         },
         {
           "brief": "A customised regimen combining peels, topicals and laser (where needed) to fade stubborn pigmentation and melasma patches safely.",
@@ -137,7 +137,7 @@ export const servicesSection = {
           "taDesc": "மெலஸ்மா மற்றும் நிறமி பிரச்சனைகளுக்கான சிகிச்சை.",
           "enTitle": "Melasma / Pigmentation",
           "enDesc": "Dedicated treatment for melasma and pigmentation concerns.",
-          "image": "/images/services/melasma-pigmentation.jpeg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/melasma-pigmentation.jpeg"
         },
         {
           "brief": "De-tan facials and peels that lift surface tan and even out skin tone within a few sessions.",
@@ -145,7 +145,7 @@ export const servicesSection = {
           "taDesc": "இயற்கையான சருமத் தொனியை மீட்கும் சிகிச்சை.",
           "enTitle": "Tanning Treatment",
           "enDesc": "De-tan therapy to restore natural skin tone.",
-          "image": "/images/services/tanning-treatment.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/tanning-treatment.jpg"
         },
         {
           "brief": "A clinical protocol addressing active breakouts, inflammation and future scarring risk with dermatologist-guided steps.",
@@ -153,7 +153,7 @@ export const servicesSection = {
           "taDesc": "முகப்பருவைக் கட்டுப்படுத்தி தழும்பைக் குறைக்கும் சிகிச்சை.",
           "enTitle": "Acne / Pimples Treatment",
           "enDesc": "Clinical treatment to control breakouts and reduce scarring.",
-          "image": "/images/services/acne-pimples-treatment.png"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/acne-pimples-treatment.png"
         },
         {
           "brief": "Quick, minimally invasive in-clinic removal with local anaesthesia where needed — same-day procedure.",
@@ -161,7 +161,7 @@ export const servicesSection = {
           "taDesc": "பாதுகாப்பான, குறைந்த அளவு அறுவை சிகிச்சை மூலம் நீக்கம்.",
           "enTitle": "Wart & Corn Removal",
           "enDesc": "Safe, minimally invasive removal procedures.",
-          "image": "/images/services/wart-and-corn-removal.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/wart-and-corn-removal.webp"
         },
         {
           "brief": "Scalp analysis followed by a targeted therapy plan — including GFC where suitable — to control hairfall and dandruff at the root cause.",
@@ -169,7 +169,7 @@ export const servicesSection = {
           "taDesc": "முடி உதிர்வு மற்றும் பொடுகைக் கட்டுப்படுத்தும் தலை சிகிச்சைகள்.",
           "enTitle": "Hairfall & Dandruff Treatment",
           "enDesc": "Scalp therapies to control hair fall and dandruff.",
-          "image": "/images/services/hairfall-and-dandruff-treatment.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/hairfall-and-dandruff-treatment.jpg"
         },
         {
           "brief": "A structured, doctor-supervised plan combining diet guidance and monitoring for sustainable weight loss.",
@@ -177,7 +177,7 @@ export const servicesSection = {
           "taDesc": "கட்டமைக்கப்பட்ட எடை குறைப்பு சிகிச்சை திட்டங்கள்.",
           "enTitle": "Weight Reduction",
           "enDesc": "Structured weight-loss treatment plans.",
-          "image": "/images/services/weight-reduction.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/weight-reduction.webp"
         }
       ]
     },
@@ -191,7 +191,7 @@ export const servicesSection = {
           "taDesc": "ஒவ்வொரு சர்க்கரை நோய் வருகையிலும் வழக்கமான பரிசோதனை.",
           "enTitle": "Vitals Monitoring",
           "enDesc": "Routine vitals check as part of every diabetes visit.",
-          "image": "/images/services/vitals-monitoring.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/vitals-monitoring.jpg"
         },
         {
           "brief": "A systematic review covering eyes, kidneys, nerves and feet to catch diabetes-related complications early.",
@@ -199,7 +199,7 @@ export const servicesSection = {
           "taDesc": "சர்க்கரை நோய் தொடர்பான சிக்கல்களுக்கான முறையான பரிசோதனை.",
           "enTitle": "Complication Checklist",
           "enDesc": "Systematic screening for diabetes-related complications.",
-          "image": "/images/services/complication-checklist.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/complication-checklist.jpg"
         },
         {
           "brief": "Dedicated foot examination and wound care for patients with diabetes, reducing risk of ulcers and infections.",
@@ -207,7 +207,7 @@ export const servicesSection = {
           "taDesc": "சர்க்கரை நோயால் ஏற்படும் கால் சிக்கல்களுக்கான சிறப்பு மதிப்பீடு.",
           "enTitle": "Diabetic Foot Care",
           "enDesc": "Dedicated assessment and treatment for diabetic foot complications.",
-          "image": "/images/services/diabetic-foot-care.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/diabetic-foot-care.jpg"
         },
         {
           "brief": "Nerve-sensation testing of the feet using monofilament and vibration checks, catching diabetic neuropathy early before numbness leads to injury.",
@@ -215,7 +215,7 @@ export const servicesSection = {
           "taDesc": "சர்க்கரை நோயால் ஏற்படும் நரம்பு பாதிப்பை முன்கூட்டியே கண்டறியும் பரிசோதனை.",
           "enTitle": "Neuropathy Screening",
           "enDesc": "Monofilament and vibration testing to catch diabetic nerve damage early.",
-          "image": "/images/services/neuropathy-screening.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/neuropathy-screening.webp"
         }
       ]
     },
@@ -229,7 +229,7 @@ export const servicesSection = {
           "taDesc": "தைராய்டு நோய் கண்டறிதல் மற்றும் தொடர் மேலாண்மை.",
           "enTitle": "Thyroid Care",
           "enDesc": "Diagnosis and ongoing management of thyroid conditions.",
-          "image": "/images/services/thyroid-care.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/thyroid-care.jpg"
         },
         {
           "brief": "Regular blood pressure monitoring paired with a personalised medication and lifestyle plan to keep hypertension under control.",
@@ -237,7 +237,7 @@ export const servicesSection = {
           "taDesc": "இரத்த அழுத்தத்தைக் கட்டுப்படுத்துவதற்கான பரிசோதனை மற்றும் சிகிச்சை திட்டம்.",
           "enTitle": "Hypertension Management",
           "enDesc": "Ongoing blood pressure monitoring and a tailored treatment plan.",
-          "image": "/images/services/hypertension-management.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/hypertension-management.webp"
         },
         {
           "brief": "Lipid profile testing followed by a personalised diet and medication plan to bring cholesterol into a healthy range.",
@@ -245,7 +245,7 @@ export const servicesSection = {
           "taDesc": "கொலஸ்ட்ரால் கட்டுப்பாட்டிற்கான பரிசோதனை மற்றும் சிகிச்சை திட்டங்கள்.",
           "enTitle": "Cholesterol Management",
           "enDesc": "Screening and treatment plans for cholesterol control.",
-          "image": "/images/services/cholesterol-management.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/cholesterol-management.jpg"
         },
         {
           "brief": "General health checks, vaccination guidance and treatment for common childhood illnesses.",
@@ -253,7 +253,7 @@ export const servicesSection = {
           "taDesc": "குழந்தைகளின் ஆரோக்கியம் மற்றும் பொது பராமரிப்பு சிகிச்சைகள்.",
           "enTitle": "Pediatrics",
           "enDesc": "Children's health and general care treatments.",
-          "image": "/images/services/pediatrics.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/pediatrics.webp"
         },
         {
           "brief": "Confidential consultations for women's health concerns, cycle irregularities and general gynaecological care.",
@@ -261,7 +261,7 @@ export const servicesSection = {
           "taDesc": "பெண்கள் நல சிகிச்சைகள் மற்றும் ஆலோசனைகள்.",
           "enTitle": "Gynaecology",
           "enDesc": "Women's health care treatments and consultations.",
-          "image": "/images/services/gynaecology.jpg"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/gynaecology.jpg"
         },
         {
           "brief": "Diagnosis and treatment for ear, nose and throat conditions across all age groups.",
@@ -269,7 +269,7 @@ export const servicesSection = {
           "taDesc": "அனைத்து வயதினருக்கும் காது மூக்கு தொண்டை சிகிச்சைகள்.",
           "enTitle": "ENT Care",
           "enDesc": "Ear, nose and throat treatments for all ages.",
-          "image": "/images/services/ent-care.png"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/ent-care.png"
         },
         {
           "brief": "General eye health consultations, vision concerns and referrals where specialist care is needed.",
@@ -277,7 +277,7 @@ export const servicesSection = {
           "taDesc": "பொது கண் பராமரிப்பு ஆலோசனை மற்றும் சிகிச்சை.",
           "enTitle": "Eye Care",
           "enDesc": "General eye care consultations and treatment.",
-          "image": "/images/services/eye-care.webp"
+          "image": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/services/eye-care.webp"
         }
       ]
     }
@@ -289,38 +289,38 @@ export const procedureVideosSection = {
   heading: "Our Treatment Procedures",
   items: [
     {
-      "src": "/videos/procedure-videos/procedure-1.mp4",
-      "cover": "/images/clinic-images/image9.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/procedure-1.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image9.webp",
       "label": "Procedure Walkthrough 1"
     },
     {
-      "src": "/videos/procedure-videos/procedure-2.mp4",
-      "cover": "/images/clinic-images/image10.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/procedure-2.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image10.webp",
       "label": "Procedure Walkthrough 2"
     },
     {
-      "src": "/videos/procedure-videos/gfc-therapy.mp4",
-      "cover": "/images/hero/clinic-signage-1.jpg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/gfc-therapy.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/clinic-signage-1.jpg",
       "label": "Procedure Walkthrough 3"
     },
     {
-      "src": "/videos/procedure-videos/procedure-4.mp4",
-      "cover": "/images/clinic-images/image11.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/procedure-4.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image11.webp",
       "label": "Procedure Walkthrough 4"
     },
     {
-      "src": "/videos/procedure-videos/procedure-5.mp4",
-      "cover": "/images/clinic-images/image12.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/procedure-5.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image12.webp",
       "label": "Procedure Walkthrough 5"
     },
     {
-      "src": "/videos/procedure-videos/laser-treatment.mp4",
-      "cover": "/images/clinic-images/image13.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/laser-treatment.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image13.webp",
       "label": "Procedure Walkthrough 6"
     },
     {
-      "src": "/videos/procedure-videos/laser-treatment-2.mp4",
-      "cover": "/images/clinic-images/image18.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/procedure-videos/laser-treatment-2.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image18.webp",
       "label": "Procedure Walkthrough 7"
     }
   ],
@@ -331,38 +331,38 @@ export const videoReviewsSection = {
   heading: "Skincare Treatment Reviews",
   items: [
     {
-      "src": "/videos/video-reviews/skincare-review-1.mp4",
-      "cover": "/images/hero/clinic-signage-1.jpg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/skincare-review-1.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/clinic-signage-1.jpg",
       "label": "Skincare Treatment Review 1"
     },
     {
-      "src": "/videos/video-reviews/skincare-review-2.mp4",
-      "cover": "/images/clinic-images/image19.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/skincare-review-2.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image19.webp",
       "label": "Skincare Treatment Review 2"
     },
     {
-      "src": "/videos/video-reviews/skincare-review-3.mp4",
-      "cover": "/images/clinic-images/image14.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/skincare-review-3.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image14.webp",
       "label": "Skincare Treatment Review 3"
     },
     {
-      "src": "/videos/video-reviews/skincare-review-4.mp4",
-      "cover": "/images/hero/doctor-nameplate.jpg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/skincare-review-4.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/doctor-nameplate.jpg",
       "label": "Skincare Treatment Review 4"
     },
     {
-      "src": "/videos/video-reviews/skincare-review-5.mp4",
-      "cover": "/images/clinic-images/image15.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/skincare-review-5.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image15.webp",
       "label": "Skincare Treatment Review 5"
     },
     {
-      "src": "/videos/video-reviews/irregular-periods-1.mp4",
-      "cover": "/images/clinic-images/image16.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/irregular-periods-1.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image16.webp",
       "label": "Skincare Treatment Review 6"
     },
     {
-      "src": "/videos/video-reviews/irregular-periods-2.mp4",
-      "cover": "/images/clinic-images/image17.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/videos/video-reviews/irregular-periods-2.mp4",
+      "cover": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image17.webp",
       "label": "Skincare Treatment Review 7"
     }
   ],
@@ -378,49 +378,49 @@ export const gallerySection = {
   ],
   beforeAfter: [
     {
-      "src": "/images/before-after/corn-removal.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/corn-removal.jpeg",
       "alt": "Corn removal before and after at Zafoor Clinic Chennai",
       "cap": "Corn Removal",
       "lightboxCap": "Corn Removal"
     },
     {
-      "src": "/images/before-after/diabetic-wound.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/diabetic-wound.jpeg",
       "alt": "Diabetic wound care before and after at Zafoor Clinic Chennai",
       "cap": "Diabetic Wound Care",
       "lightboxCap": "Diabetic Wound Care"
     },
     {
-      "src": "/images/before-after/fire-ice-facial.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/fire-ice-facial.jpeg",
       "alt": "Fire and Ice Facial before and after at Zafoor Clinic Chennai",
       "cap": "Fire & Ice Facial",
       "lightboxCap": "Fire & Ice Facial"
     },
     {
-      "src": "/images/before-after/hair-treatment-result.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/hair-treatment-result.jpeg",
       "alt": "Hair treatment result before and after at Zafoor Clinic Chennai",
       "cap": "Hair Treatment",
       "lightboxCap": "Hair Treatment Result"
     },
     {
-      "src": "/images/before-after/hydra-facial.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/hydra-facial.jpeg",
       "alt": "Hydra Facial before and after at Zafoor Clinic Chennai",
       "cap": "Hydra Facial",
       "lightboxCap": "Hydra Facial"
     },
     {
-      "src": "/images/before-after/skin-infection.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/skin-infection.jpeg",
       "alt": "Skin infection treatment before and after at Zafoor Clinic Chennai",
       "cap": "Skin Infection Treatment",
       "lightboxCap": "Skin Infection Treatment"
     },
     {
-      "src": "/images/before-after/skin-infection-1.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/skin-infection-1.jpeg",
       "alt": "Skin infection treatment before and after at Zafoor Clinic Chennai",
       "cap": "Skin Infection Treatment",
       "lightboxCap": "Skin Infection Treatment"
     },
     {
-      "src": "/images/before-after/wart-removal.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/before-after/wart-removal.jpeg",
       "alt": "Wart removal before and after at Zafoor Clinic Chennai",
       "cap": "Wart Removal",
       "lightboxCap": "Wart Removal"
@@ -428,67 +428,67 @@ export const gallerySection = {
   ],
   clinic: [
     {
-      "src": "/images/clinic-images/image20.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image20.webp",
       "alt": "Zafoor Clinic entrance and signage, George Town Chennai",
       "cap": "Clinic Entrance",
       "lightboxCap": "Clinic Entrance"
     },
     {
-      "src": "/images/clinic-images/clinic-photo-1.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/clinic-photo-1.jpeg",
       "alt": "Zafoor Clinic reception signage",
       "cap": "Reception",
       "lightboxCap": "Reception"
     },
     {
-      "src": "/images/clinic-images/clinic-photo-2.jpeg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/clinic-photo-2.jpeg",
       "alt": "Dr. Mufeeda Roohi consultation room nameplate",
       "cap": "Dr. Mufeeda Roohi's Desk",
       "lightboxCap": "Consultation Desk"
     },
     {
-      "src": "/images/clinic-images/image1.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image1.webp",
       "alt": "Laser and aesthetic treatment room at Zafoor Clinic",
       "cap": "Laser & Aesthetic Room",
       "lightboxCap": "Laser & Aesthetic Room"
     },
     {
-      "src": "/images/clinic-images/image2.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image2.webp",
       "alt": "Skin treatment room at Zafoor Clinic",
       "cap": "Treatment Room",
       "lightboxCap": "Treatment Room"
     },
     {
-      "src": "/images/hero/doctor-nameplate.jpg",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/hero/doctor-nameplate.jpg",
       "alt": "Zafoor Clinic entrance signage, George Town Chennai",
       "cap": "Clinic Signage",
       "lightboxCap": "Clinic Signage"
     },
     {
-      "src": "/images/clinic-images/image3.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image3.webp",
       "alt": "Waiting area corridor at Zafoor Clinic",
       "cap": "Waiting Area",
       "lightboxCap": "Waiting Corridor"
     },
     {
-      "src": "/images/clinic-images/image4.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image4.webp",
       "alt": "Awards and recognitions display at Zafoor Clinic",
       "cap": "Awards & Recognition",
       "lightboxCap": "Awards & Recognition"
     },
     {
-      "src": "/images/clinic-images/image6.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image6.webp",
       "alt": "Zafoor Clinic doctor coat",
       "cap": "Zafoor Clinic",
       "lightboxCap": "Doctor's Coat"
     },
     {
-      "src": "/images/clinic-images/image7.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image7.webp",
       "alt": "Zafoor Clinic grand opening celebration",
       "cap": "Grand Opening",
       "lightboxCap": "Grand Opening"
     },
     {
-      "src": "/images/clinic-images/image8.webp",
+      "src": "https://4pkrmvqtrlawvaa5.public.blob.vercel-storage.com/images/clinic-images/image8.webp",
       "alt": "Glowing skin growing confidence signage at Zafoor Clinic",
       "cap": "Glowing Skin, Growing Confidence",
       "lightboxCap": "Ceiling Signage"
