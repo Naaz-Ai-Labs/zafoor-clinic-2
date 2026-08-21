@@ -62,10 +62,11 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Clinical",
+    label: "Clinical & Staff",
     dot: "bg-violet-500",
     text: "text-violet-600 dark:text-violet-400",
     items: [
+      { href: "/settings/staff", label: "Staff & Logins", icon: Users, adminOnly: true },
       { href: "/appointments/availability", label: "Doctor Availability", icon: CalendarClock },
       { href: "/templates", label: "Doctor Templates", icon: FileEdit },
       { href: "/settings/signature", label: "Digital Signature", icon: PenTool },

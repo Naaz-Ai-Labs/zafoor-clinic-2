@@ -188,14 +188,14 @@ export async function createWalkIn(input: WalkInInput) {
 
 export async function cancelAppointment(id: string, reason: string) {
   const user = await getCurrentUser()
+  if (user.role !== "ADMIN") {
+    throw new Error("Forbidden: Staff cannot cancel appointments once created. Only an Administrator can cancel appointments.")
+  }
+
   const appointment = await prisma.appointment.findUniqueOrThrow({
     where: { id },
     include: { patient: true, doctor: true, service: true },
   })
-
-  if (user.role === "RECEPTIONIST" && appointment.patient.registrationStatus === "LOCKED_FOR_RECEPTIONIST") {
-    throw new Error("This patient's registration and appointment are locked. Only an Admin can cancel.")
-  }
 
   const updated = await prisma.$transaction(async (tx) => {
     const res = await tx.appointment.update({
@@ -237,14 +237,14 @@ export async function cancelAppointment(id: string, reason: string) {
 
 export async function rescheduleAppointment(id: string, newScheduledAt: Date) {
   const user = await getCurrentUser()
+  if (user.role !== "ADMIN") {
+    throw new Error("Forbidden: Staff cannot modify or reschedule appointments once created. Only an Administrator can reschedule.")
+  }
+
   const original = await prisma.appointment.findUniqueOrThrow({
     where: { id },
     include: { patient: true, doctor: true, service: true },
   })
-
-  if (user.role === "RECEPTIONIST" && original.patient.registrationStatus === "LOCKED_FOR_RECEPTIONIST") {
-    throw new Error("This patient's registration and appointment are locked. Only an Admin can reschedule.")
-  }
 
   const [, next] = await prisma.$transaction(async (tx) => {
     const conflict = await tx.appointment.findFirst({
