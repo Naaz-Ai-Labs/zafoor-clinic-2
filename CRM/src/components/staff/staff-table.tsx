@@ -9,12 +9,13 @@ import {
   Shield,
   Stethoscope,
   UserCheck,
-  Receipt,
   CheckCircle2,
   XCircle,
   RefreshCw,
   Phone,
   Mail,
+  Sliders,
+  Layers,
 } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
@@ -28,7 +29,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { EditStaffDialog } from "@/components/staff/edit-staff-dialog"
 import { ResetPasswordDialog } from "@/components/staff/reset-password-dialog"
+import { ManageScopesDialog } from "@/components/staff/manage-scopes-dialog"
 import { toggleStaffStatus, syncDefaultStaffAccounts } from "@/actions/staff"
+import { getEffectivePermissions, ALL_AVAILABLE_TABS } from "@/lib/permissions"
 import { initials } from "@/lib/format"
 import type { StaffRole } from "@/generated/prisma/client"
 
@@ -41,6 +44,7 @@ type StaffMember = {
   specialization: string | null
   consultationFee: number | null
   active: boolean
+  permissions?: any
   createdAt: Date
   _count?: {
     appointmentsAsDoctor: number
@@ -53,10 +57,10 @@ const roleBadgeConfig: Record<
   StaffRole,
   { label: string; icon: typeof Shield; color: string }
 > = {
-  ADMIN: { label: "Administrator (Full Control)", icon: Shield, color: "bg-purple-100 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300 border-purple-200" },
-  DOCTOR: { label: "Doctor (EMR & Consult)", icon: Stethoscope, color: "bg-teal-100 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 border-teal-200" },
-  RECEPTIONIST: { label: "Receptionist (Selective Access)", icon: UserCheck, color: "bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 border-blue-200" },
-  BILLING: { label: "Receptionist (Selective Access)", icon: UserCheck, color: "bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 border-blue-200" },
+  ADMIN: { label: "Admin (Full Access)", icon: Shield, color: "bg-purple-100 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300 border-purple-200" },
+  DOCTOR: { label: "Doctor", icon: Stethoscope, color: "bg-teal-100 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 border-teal-200" },
+  RECEPTIONIST: { label: "Receptionist", icon: UserCheck, color: "bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 border-blue-200" },
+  BILLING: { label: "Receptionist", icon: UserCheck, color: "bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 border-blue-200" },
 }
 
 export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
@@ -64,6 +68,8 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
   const [editDialogOpen, setEditDialogOpen] = useState(false)
   const [resetStaff, setResetStaff] = useState<{ id: string; name: string; email: string } | null>(null)
   const [resetDialogOpen, setResetDialogOpen] = useState(false)
+  const [scopesStaff, setScopesStaff] = useState<StaffMember | null>(null)
+  const [scopesDialogOpen, setScopesDialogOpen] = useState(false)
   const [pending, startTransition] = useTransition()
 
   function handleToggleStatus(staff: StaffMember) {
@@ -95,7 +101,7 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border-b bg-muted/20">
           <div>
             <h2 className="font-semibold text-sm">Staff Directory ({staffList.length})</h2>
-            <p className="text-xs text-muted-foreground">All authenticated accounts synced with Supabase PostgreSQL</p>
+            <p className="text-xs text-muted-foreground">Manage accounts, selective tab access, and operational scopes synced with Supabase</p>
           </div>
           <Button
             variant="outline"
@@ -115,16 +121,18 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
               <tr>
                 <th className="py-3 px-4">Staff Member</th>
                 <th className="py-3 px-4">Role</th>
+                <th className="py-3 px-4">Tab Access & Scopes</th>
                 <th className="py-3 px-4">Contact</th>
-                <th className="py-3 px-4">Details / Clinical</th>
                 <th className="py-3 px-4">Status</th>
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               {staffList.map((staff) => {
-                const roleConfig = roleBadgeConfig[staff.role]
+                const roleConfig = roleBadgeConfig[staff.role] || roleBadgeConfig.RECEPTIONIST
                 const RoleIcon = roleConfig.icon
+                const permissions = getEffectivePermissions(staff)
+                const isCustom = !!staff.permissions
 
                 return (
                   <tr key={staff.id} className="hover:bg-muted/30 transition-colors">
@@ -150,6 +158,34 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
                     </td>
 
                     <td className="py-3.5 px-4">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-1.5">
+                          <Button
+                            variant="secondary"
+                            size="xs"
+                            className="gap-1.5 text-[11px] h-6 px-2 font-medium"
+                            onClick={() => {
+                              setScopesStaff(staff)
+                              setScopesDialogOpen(true)
+                            }}
+                          >
+                            <Sliders className="h-3 w-3 text-primary" />
+                            <span>Manage Scopes</span>
+                          </Button>
+                          {isCustom && (
+                            <Badge variant="outline" className="text-[10px] py-0 px-1 text-primary border-primary/30">
+                              Customized
+                            </Badge>
+                          )}
+                        </div>
+                        <p className="text-[11px] text-muted-foreground flex items-center gap-1">
+                          <Layers className="h-3 w-3 shrink-0" />
+                          <span>{permissions.allowedTabs.length} of {ALL_AVAILABLE_TABS.length} tabs enabled</span>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td className="py-3.5 px-4">
                       <div className="space-y-0.5 text-xs text-muted-foreground">
                         {staff.phone ? (
                           <div className="flex items-center gap-1">
@@ -164,26 +200,6 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
                           <span className="truncate max-w-[140px]">{staff.email}</span>
                         </div>
                       </div>
-                    </td>
-
-                    <td className="py-3.5 px-4">
-                      {staff.role === "DOCTOR" ? (
-                        <div className="text-xs space-y-0.5">
-                          <p className="font-medium text-foreground truncate max-w-[200px]">
-                            {staff.specialization || "General Consultation"}
-                          </p>
-                          <p className="text-muted-foreground">
-                            Fee: <span className="font-semibold text-foreground">₹{staff.consultationFee ?? 500}</span>
-                            {staff._count ? ` · ${staff._count.encountersAsDoctor} consultations` : ""}
-                          </p>
-                        </div>
-                      ) : staff.role === "RECEPTIONIST" ? (
-                        <span className="text-xs text-muted-foreground">
-                          {staff._count ? `${staff._count.registeredPatients} registered patients` : "Front Desk Access"}
-                        </span>
-                      ) : (
-                        <span className="text-xs text-muted-foreground">System Administration</span>
-                      )}
                     </td>
 
                     <td className="py-3.5 px-4">
@@ -208,7 +224,20 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
                             </Button>
                           }
                         />
-                        <DropdownMenuContent align="end" className="w-48">
+                        <DropdownMenuContent align="end" className="w-52">
+                          <DropdownMenuItem
+                            className="cursor-pointer gap-2"
+                            onClick={() => {
+                              setScopesStaff(staff)
+                              setScopesDialogOpen(true)
+                            }}
+                          >
+                            <Sliders className="h-4 w-4 text-primary" />
+                            <span className="font-medium text-primary">Manage Scopes & Tabs</span>
+                          </DropdownMenuItem>
+
+                          <DropdownMenuSeparator />
+
                           <DropdownMenuItem
                             className="cursor-pointer gap-2"
                             onClick={() => {
@@ -260,6 +289,13 @@ export function StaffTable({ staffList }: { staffList: StaffMember[] }) {
           </table>
         </div>
       </div>
+
+      {/* Manage Scopes Dialog */}
+      <ManageScopesDialog
+        staff={scopesStaff}
+        open={scopesDialogOpen}
+        onOpenChange={setScopesDialogOpen}
+      />
 
       {/* Edit Staff Dialog */}
       <EditStaffDialog

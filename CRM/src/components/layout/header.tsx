@@ -20,7 +20,7 @@ import { NavContent } from "@/components/layout/sidebar-nav"
 import { initials } from "@/lib/format"
 import { logout } from "@/actions/auth"
 
-export function Header({ user }: { user: { name: string; role: string } }) {
+export function Header({ user }: { user: { name: string; role: string; permissions?: any } }) {
   const router = useRouter()
   const [query, setQuery] = useState("")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -50,7 +50,7 @@ export function Header({ user }: { user: { name: string; role: string } }) {
         />
         <SheetContent side="left" className="p-0 w-72 max-w-[85vw]">
           <SheetTitle className="sr-only">Zafoor Clinic Navigation Menu</SheetTitle>
-          <NavContent role={user.role} onNavigate={() => setMobileMenuOpen(false)} />
+          <NavContent role={user.role} permissions={user.permissions} onNavigate={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
 

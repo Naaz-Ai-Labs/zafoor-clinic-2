@@ -197,6 +197,34 @@ export async function resetStaffPassword(id: string, newPassword: string) {
   return { success: true }
 }
 
+export async function updateStaffPermissions(id: string, permissions: { allowedTabs: string[]; actionScopes: Record<string, boolean> }) {
+  const admin = await requireRole("ADMIN")
+
+  const user = await prisma.user.update({
+    where: { id },
+    data: { permissions },
+  })
+
+  await prisma.auditLog.create({
+    data: {
+      action: "STAFF_PERMISSIONS_UPDATED",
+      entityType: "USER",
+      entityId: user.id,
+      userId: admin.id,
+      userName: admin.name,
+      metadata: {
+        staffEmail: user.email,
+        allowedTabsCount: permissions.allowedTabs.length,
+        actionScopes: permissions.actionScopes,
+      },
+    },
+  }).catch(() => {})
+
+  revalidatePath("/settings/staff")
+  revalidatePath("/", "layout")
+  return serializeDecimal(user, ["consultationFee"])
+}
+
 /**
  * Ensures primary standard accounts exist in Supabase PostgreSQL:
  * 1 Admin, 1 Doctor, 2 Receptionists (No Billing role)

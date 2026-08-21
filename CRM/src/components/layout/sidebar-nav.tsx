@@ -29,6 +29,8 @@ import {
   ShieldAlert,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { hasTabAccess } from "@/lib/permissions"
+import type { StaffRole } from "@/generated/prisma/client"
 
 interface NavItem {
   href: string
@@ -55,7 +57,7 @@ const navGroups: NavGroup[] = [
       { href: "/patients", label: "Patients", icon: Users },
       { href: "/appointments", label: "Appointments", icon: CalendarDays },
       { href: "/queue", label: "Queue", icon: ListOrdered },
-      { href: "/inventory", label: "Inventory", icon: Boxes },
+      { href: "/inventory", label: "Medicine & Stock", icon: Boxes },
       { href: "/waiting-list", label: "Waiting List", icon: Clock },
       { href: "/follow-ups", label: "Follow-ups", icon: CheckSquare },
       { href: "/communications", label: "Communications", icon: MessageSquare },
@@ -109,19 +111,25 @@ const navGroups: NavGroup[] = [
 
 export function NavContent({
   role = "ADMIN",
+  permissions,
   onNavigate,
 }: {
   role?: string
+  permissions?: any
   onNavigate?: () => void
 }) {
   const pathname = usePathname()
   const isAdmin = role === "ADMIN"
+  const userContext = { role: role as StaffRole, permissions }
 
   const visibleGroups = navGroups
     .filter((group) => !group.adminOnly || isAdmin)
     .map((group) => ({
       ...group,
-      items: group.items.filter((item) => !item.adminOnly || isAdmin),
+      items: group.items.filter((item) => {
+        if (item.adminOnly && !isAdmin) return false
+        return hasTabAccess(userContext, item.href)
+      }),
     }))
     .filter((group) => group.items.length > 0)
 
@@ -138,36 +146,36 @@ export function NavContent({
       </div>
       <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-4">
         {visibleGroups.map((group) => (
-          <div key={group.label} className="space-y-1">
-            <p className={cn("flex items-center gap-1.5 px-3 text-[11px] font-semibold uppercase tracking-wide", group.text)}>
-              <span className={cn("h-1.5 w-1.5 rounded-full", group.dot)} />
-              {group.label}
-            </p>
-            {group.items.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href === "/appointments" && pathname.startsWith("/appointments/")) ||
-                (item.href === "/inventory" && pathname.startsWith("/inventory/")) ||
-                (item.href === "/billing" && pathname.startsWith("/billing/") && !pathname.startsWith("/billing/refunds")) ||
-                (!["/appointments", "/billing", "/inventory"].includes(item.href) && item.href.length > 1 && pathname.startsWith(`${item.href}/`))
-              const Icon = item.icon
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => onNavigate?.()}
-                  className={cn(
-                    "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                    isActive
-                      ? "bg-primary text-primary-foreground shadow-xs"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                  )}
-                >
-                  <Icon className={cn("h-4 w-4 shrink-0", !isActive && group.text)} />
-                  <span className="truncate">{item.label}</span>
-                </Link>
-              )
-            })}
+          <div key={group.label}>
+            <div className="flex items-center gap-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", group.dot)} />
+              <span className={cn("text-[11px] font-bold tracking-wider", group.text)}>{group.label}</span>
+            </div>
+            <div className="mt-1 space-y-0.5">
+              {group.items.map((item) => {
+                const Icon = item.icon
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== "/dashboard" && pathname?.startsWith(item.href + "/"))
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={onNavigate}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors",
+                      isActive
+                        ? "bg-primary/10 text-primary font-semibold"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
+                  >
+                    <Icon className={cn("h-4 w-4 shrink-0", isActive ? "text-primary" : "text-muted-foreground")} />
+                    <span>{item.label}</span>
+                  </Link>
+                )
+              })}
+            </div>
           </div>
         ))}
       </nav>
@@ -175,10 +183,16 @@ export function NavContent({
   )
 }
 
-export function SidebarNav({ role = "ADMIN" }: { role?: string }) {
+export function SidebarNav({
+  role = "ADMIN",
+  permissions,
+}: {
+  role?: string
+  permissions?: any
+}) {
   return (
-    <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r bg-background">
-      <NavContent role={role} />
+    <aside className="hidden lg:flex w-64 flex-col border-r bg-card shrink-0 min-h-screen">
+      <NavContent role={role} permissions={permissions} />
     </aside>
   )
 }
