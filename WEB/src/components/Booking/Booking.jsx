@@ -295,7 +295,7 @@ export default function Booking() {
     };
     if (details.lastName.trim()) payload.lastName = details.lastName.trim();
     if (details.email.trim()) payload.email = details.email.trim();
-    if (details.gender) payload.gender = details.gender;
+    if (details.gender) payload.gender = details.gender.trim().toUpperCase();
     if (details.reason.trim()) payload.reason = details.reason.trim();
 
     try {
@@ -642,11 +642,9 @@ export default function Booking() {
                       aria-describedby={fieldErrors.gender ? "booking-gender-error" : undefined}
                     >
                       <option value="">Prefer not to say</option>
-                      {booking.detailsStep.genders.map((g) => (
-                        <option key={g} value={g}>
-                          {g}
-                        </option>
-                      ))}
+                      <option value="FEMALE">Female</option>
+                      <option value="MALE">Male</option>
+                      <option value="OTHER">Other</option>
                     </select>
                     {fieldErrors.gender && (
                       <p className="booking-field-error" id="booking-gender-error">
