@@ -447,6 +447,10 @@ export async function getQueue() {
 
 export const getTodayQueue = getQueue
 
+export async function confirmAppointment(id: string) {
+  return updateAppointmentStatus(id, "CONFIRMED")
+}
+
 export async function checkInAppointment(id: string) {
   return updateAppointmentStatus(id, "ARRIVED")
 }
@@ -461,6 +465,24 @@ export async function completeConsultation(id: string) {
 
 export async function markNoShow(id: string) {
   return updateAppointmentStatus(id, "NO_SHOW")
+}
+
+export async function getAppointmentsForPatient(patientId: string) {
+  const appointments = await prisma.appointment.findMany({
+    where: { patientId },
+    include: {
+      patient: true,
+      doctor: true,
+      service: true,
+    },
+    orderBy: { scheduledAt: "desc" },
+  })
+
+  return appointments.map((a) => ({
+    ...a,
+    doctor: serializeDecimal(a.doctor, ["consultationFee"]),
+    service: a.service ? serializeDecimal(a.service, ["price"]) : null,
+  }))
 }
 
 // ── Waiting list ───────────────────────────────────────────────────────
